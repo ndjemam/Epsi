@@ -1,1 +1,0 @@
-# Epsi_B3_DEV_G2_Android_2020_2021
