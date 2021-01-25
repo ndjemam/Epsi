@@ -42,7 +42,7 @@ public class WSCall {
                     HttpsURLConnection httpURLConnection = (HttpsURLConnection) url.openConnection();
                     httpURLConnection.connect();
                     httpURLConnection.setConnectTimeout(20000);
-                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDefaultUseCaches(false);
                     inputStream = httpURLConnection.getInputStream();
                     postRun(convertStreamToString(inputStream));
                 } catch (UnknownHostException e) {
