@@ -20,7 +20,8 @@ public class HomeActivity extends EpsiActivity implements View.OnClickListener {
         setContentView(R.layout.activity_home);
         findViewById(R.id.buttonNature).setOnClickListener(this);
         findViewById(R.id.buttonEspace).setOnClickListener(this);
-        findViewById(R.id.buttonList).setOnClickListener(this);
+        findViewById(R.id.buttonListLocal).setOnClickListener(this);
+        findViewById(R.id.buttonListWs).setOnClickListener(this);
         setTitle("Home");
     }
 
@@ -33,8 +34,11 @@ public class HomeActivity extends EpsiActivity implements View.OnClickListener {
             case R.id.buttonEspace:
                 ImageActivity.displayActivity(this,urlEspace,"Espace");
                 break;
-            case R.id.buttonList:
+            case R.id.buttonListLocal:
                 StudentsActivity.displayActivity(this);
+                break;
+            case R.id.buttonListWs:
+                StudentsWithWSActivity.displayActivity(this);
                 break;
         }
     }

@@ -25,10 +25,18 @@
         android:layout_gravity="center_horizontal"
         android:text="Espace"/>
     <Button
-        android:id="@+id/buttonList"
+        android:id="@+id/buttonListLocal"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="List"/>
+        android:text="List Local"/>
+
+    <Button
+        android:id="@+id/buttonListWs"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="List WS"/>
 </LinearLayout>
