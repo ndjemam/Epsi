@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,7 +36,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Student student=students.get(position);
-        holder.getTextView().setText(student.getName());
+        holder.getTextViewName().setText(student.getName());
+        holder.getTextViewEmail().setText(student.getEmail());
+        Picasso.get().load(student.getUrl()).into(holder.getImageViewStudent());
+        holder.getLayoutCell().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageActivity.displayActivity(activity,student.getUrl(),student.getName());
+            }
+        });
     }
 
     @Override
@@ -42,16 +53,31 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView textViewName;
+        private final TextView textViewEmail;
+        private final ImageView imageViewStudent;
+        private final View layoutCell;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            textView = (TextView) view.findViewById(R.id.textViewName);
+            textViewName = view.findViewById(R.id.textViewName);
+            textViewEmail = view.findViewById(R.id.textViewEmail);
+            imageViewStudent =  view.findViewById(R.id.imageViewStudent);
+            layoutCell = view.findViewById(R.id.layoutCell);
         }
 
-        public TextView getTextView() {
-            return textView;
+        public View getLayoutCell() {
+            return layoutCell;
+        }
+        public TextView getTextViewName() {
+            return textViewName;
+        }
+        public TextView getTextViewEmail() {
+            return textViewEmail;
+        }
+        public ImageView getImageViewStudent() {
+            return imageViewStudent;
         }
     }
 
